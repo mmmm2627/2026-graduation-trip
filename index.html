@@ -1,0 +1,1178 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LFN UCLA毕业 · 美西之旅 2026</title>
+<style>
+/* ── 字体降级：优先系统衬线/无衬线，Google Fonts 不可用时自动降级 ── */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;500;600&family=Noto+Sans+SC:wght@300;400;500&display=swap');
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --gold: #C9A84C;
+  --gold-light: #F0DFA0;
+  --gold-dark: #8B6914;
+  --navy: #1A2744;
+  --navy-mid: #2D3F6B;
+  --bg: #F7F5F0;
+  --bg-card: #FFFFFF;
+  --bg-secondary: #F2EFE8;
+  --text: #1C1C1E;
+  --text-muted: #6C6C70;
+  --border: rgba(0,0,0,0.1);
+  --border-mid: rgba(0,0,0,0.18);
+  --radius: 12px;
+  --radius-sm: 8px;
+  --font-serif: 'Noto Serif SC', 'Songti SC', 'STSong', Georgia, serif;
+  --font-sans: 'Noto Sans SC', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
+}
+
+html { scroll-behavior: smooth; }
+body {
+  font-family: var(--font-sans);
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ── HERO ── */
+.hero {
+  background: linear-gradient(160deg, #0F1B38 0%, #1A2744 45%, #243557 100%);
+  padding: 56px 24px 48px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 60% 50% at 20% 60%, rgba(201,168,76,0.12) 0%, transparent 70%),
+    radial-gradient(ellipse 50% 40% at 80% 30%, rgba(201,168,76,0.08) 0%, transparent 60%);
+  pointer-events: none;
+}
+.hero-ornament {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+.hero-ornament-line {
+  width: 40px; height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(201,168,76,0.6));
+}
+.hero-ornament-line.right {
+  background: linear-gradient(90deg, rgba(201,168,76,0.6), transparent);
+}
+.hero-ornament-tag {
+  color: var(--gold);
+  font-size: 11px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  font-family: var(--font-sans);
+  font-weight: 500;
+}
+.hero h1 {
+  font-family: var(--font-serif);
+  font-size: clamp(28px, 5vw, 44px);
+  font-weight: 600;
+  color: #fff;
+  line-height: 1.2;
+  margin-bottom: 10px;
+  position: relative;
+}
+.hero h1 em {
+  font-style: normal;
+  color: var(--gold);
+}
+.hero-sub {
+  color: rgba(255,255,255,0.55);
+  font-size: 14px;
+  letter-spacing: 2px;
+  margin-bottom: 32px;
+  position: relative;
+  font-weight: 300;
+}
+.hero-pills {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  position: relative;
+}
+.hero-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(201,168,76,0.3);
+  color: rgba(255,255,255,0.8);
+  font-size: 12.5px;
+  padding: 7px 14px;
+  border-radius: 20px;
+  font-weight: 400;
+  backdrop-filter: blur(4px);
+}
+.hero-pill .dot {
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: var(--gold);
+  flex-shrink: 0;
+}
+
+/* ── FAMILY LEGEND ── */
+.family-bar {
+  background: var(--navy);
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0;
+  border-bottom: 1px solid rgba(201,168,76,0.2);
+}
+.family-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 11px 20px;
+  font-size: 12.5px;
+  color: rgba(255,255,255,0.7);
+  border-right: 1px solid rgba(255,255,255,0.07);
+}
+.family-item:last-child { border-right: none; }
+.family-dot {
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+.dot-ljp { background: #5B9BD5; }
+.dot-lfn { background: #C9A84C; }
+.dot-gugu { background: #7EC8A0; }
+
+/* ── NAV ── */
+.nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(255,255,255,0.95);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  justify-content: center;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+.nav::-webkit-scrollbar { display: none; }
+.nav-btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 14px 22px;
+  font-size: 13.5px;
+  font-weight: 500;
+  color: var(--text-muted);
+  background: none;
+  border: none;
+  border-bottom: 2.5px solid transparent;
+  cursor: pointer;
+  white-space: nowrap;
+  font-family: var(--font-sans);
+  transition: color 0.2s, border-color 0.2s;
+}
+.nav-btn:hover { color: var(--text); }
+.nav-btn.active { color: var(--navy); border-bottom-color: var(--gold); }
+.nav-btn .icon { font-size: 16px; }
+
+/* ── PANELS ── */
+.panel { display: none; max-width: 800px; margin: 0 auto; padding: 28px 16px 60px; }
+.panel.active { display: block; }
+
+/* ── SECTION LABEL ── */
+.sec-label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 28px 0 14px;
+  font-size: 10.5px;
+  letter-spacing: 3.5px;
+  text-transform: uppercase;
+  color: var(--gold-dark);
+  font-weight: 500;
+}
+.sec-label:first-child { margin-top: 0; }
+.sec-label::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, rgba(201,168,76,0.4), transparent);
+}
+
+/* ── TIMELINE SEGMENT ── */
+.seg-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 24px 0 12px;
+}
+.seg-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--navy);
+  color: var(--gold);
+  font-size: 12px;
+  font-weight: 500;
+  padding: 5px 14px;
+  border-radius: 20px;
+  letter-spacing: 0.5px;
+  white-space: nowrap;
+}
+.seg-line { flex: 1; height: 1px; background: var(--border); }
+.seg-dates { font-size: 11.5px; color: var(--text-muted); white-space: nowrap; }
+
+/* ── DAY CARD ── */
+.day-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  margin-bottom: 10px;
+  overflow: hidden;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+.day-card:hover { border-color: var(--border-mid); box-shadow: 0 2px 12px rgba(0,0,0,0.06); }
+.day-card-head {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 13px 16px;
+  cursor: pointer;
+  user-select: none;
+}
+.day-box {
+  background: var(--bg-secondary);
+  border-radius: var(--radius-sm);
+  text-align: center;
+  padding: 7px 10px;
+  min-width: 54px;
+  flex-shrink: 0;
+}
+.day-box .mo { font-size: 10px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 1px; }
+.day-box .d  { font-size: 22px; font-weight: 600; color: var(--text); font-family: var(--font-serif); line-height: 1.1; }
+.day-box .wd { font-size: 10px; color: var(--text-muted); margin-top: 2px; }
+.day-info { flex: 1; min-width: 0; }
+.day-title { font-size: 14.5px; font-weight: 500; color: var(--text); margin-bottom: 4px; }
+.day-meta  { font-size: 12px; color: var(--text-muted); display: flex; gap: 12px; flex-wrap: wrap; }
+.who-tags  { display: flex; gap: 5px; margin-left: auto; flex-shrink: 0; align-items: center; }
+.who-tag   {
+  font-size: 10px; font-weight: 500;
+  padding: 3px 8px; border-radius: 10px;
+  letter-spacing: 0.3px;
+}
+.who-ljp  { background: #EBF3FB; color: #1A5FA8; }
+.who-lfn  { background: #FBF5E6; color: #8B6914; }
+.who-gugu { background: #E8F6EF; color: #1A6B40; }
+.chevron  { color: var(--text-muted); font-size: 18px; transition: transform 0.25s; flex-shrink: 0; margin-left: 4px; }
+.day-card.open .chevron { transform: rotate(180deg); }
+
+.day-body {
+  display: none;
+  border-top: 1px solid var(--border);
+  padding: 14px 16px 16px;
+}
+.day-card.open .day-body { display: block; }
+
+.detail-row {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  padding: 9px 0;
+  border-bottom: 1px solid var(--border);
+  font-size: 13px;
+}
+.detail-row:last-child { border-bottom: none; padding-bottom: 0; }
+.detail-label {
+  color: var(--text-muted);
+  min-width: 78px;
+  flex-shrink: 0;
+  font-size: 12px;
+  padding-top: 1px;
+}
+.detail-val { color: var(--text); flex: 1; line-height: 1.55; }
+.detail-val a { color: var(--gold-dark); text-decoration: underline; }
+.mono {
+  font-family: 'SF Mono', 'Fira Code', monospace;
+  background: var(--bg-secondary);
+  padding: 1px 7px;
+  border-radius: 4px;
+  font-size: 12px;
+  letter-spacing: 0.5px;
+}
+.act-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 3px 10px;
+  font-size: 12px;
+  color: var(--text);
+  margin: 3px 4px 3px 0;
+}
+
+/* ── HOTEL CARD ── */
+.hotel-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 16px 18px;
+  margin-bottom: 10px;
+}
+.hotel-head {
+  display: flex;
+  align-items: flex-start;
+  gap: 13px;
+  margin-bottom: 14px;
+}
+.hotel-icon {
+  width: 42px; height: 42px;
+  border-radius: var(--radius-sm);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 20px;
+  flex-shrink: 0;
+}
+.icon-ljp  { background: #EBF3FB; }
+.icon-lfn  { background: #FBF5E6; }
+.hotel-name { font-size: 15px; font-weight: 500; color: var(--text); margin-bottom: 3px; }
+.hotel-dates { font-size: 12px; color: var(--text-muted); }
+.hotel-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 12px;
+}
+.hf-label { font-size: 11px; color: var(--text-muted); margin-bottom: 3px; }
+.hf-val   { font-size: 13.5px; font-weight: 500; color: var(--text); }
+.payer {
+  display: inline-flex; align-items: center; gap: 5px;
+  font-size: 11.5px; font-weight: 500;
+  padding: 4px 11px; border-radius: 20px;
+  margin-left: auto; flex-shrink: 0;
+}
+.payer-ljp  { background: #EBF3FB; color: #1A5FA8; }
+.payer-lfn  { background: #FBF5E6; color: #8B6914; }
+.payer-dot  { width: 6px; height: 6px; border-radius: 50%; }
+
+/* ── COST TABLE ── */
+.cost-metrics {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+  gap: 12px;
+  margin-bottom: 24px;
+}
+.metric {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 16px;
+  text-align: center;
+}
+.metric-label { font-size: 11px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 8px; }
+.metric-val   { font-size: 26px; font-weight: 600; color: var(--text); font-family: var(--font-serif); line-height: 1; }
+.metric-sub   { font-size: 11px; color: var(--text-muted); margin-top: 5px; }
+.metric.highlight { border-color: rgba(201,168,76,0.4); background: #FFFBF0; }
+.metric.highlight .metric-val { color: var(--gold-dark); }
+
+.cost-block {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  margin-bottom: 14px;
+}
+.cost-thead {
+  display: grid;
+  grid-template-columns: 1fr 100px 90px;
+  padding: 10px 16px;
+  background: var(--bg-secondary);
+  font-size: 11px;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  font-weight: 500;
+}
+.cost-row {
+  display: grid;
+  grid-template-columns: 1fr 100px 90px;
+  padding: 11px 16px;
+  border-top: 1px solid var(--border);
+  font-size: 13px;
+  align-items: center;
+}
+.cost-tfoot {
+  display: grid;
+  grid-template-columns: 1fr 100px 90px;
+  padding: 12px 16px;
+  background: var(--bg-secondary);
+  border-top: 1px solid var(--border);
+  font-size: 14px;
+  font-weight: 600;
+  align-items: center;
+}
+.cost-amt { text-align: right; font-weight: 500; }
+.cost-tfoot .cost-amt { color: var(--navy); }
+
+.tip {
+  background: var(--bg-secondary);
+  border-left: 3px solid var(--gold);
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+  padding: 11px 15px;
+  font-size: 13px;
+  color: var(--text-muted);
+  margin-top: 14px;
+  line-height: 1.6;
+}
+.tip strong { color: var(--text); font-weight: 500; }
+
+/* ── FLIGHT CARD ── */
+.flight-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 16px 18px;
+  margin-bottom: 10px;
+}
+.flight-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 14px;
+}
+.flight-name {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.flight-icon { font-size: 18px; }
+.flight-route {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 12px 0;
+  border-top: 1px solid var(--border);
+}
+.f-city { text-align: center; }
+.f-code { font-size: 26px; font-weight: 600; font-family: var(--font-serif); color: var(--text); line-height: 1; }
+.f-time { font-size: 12px; color: var(--text-muted); margin-top: 4px; }
+.f-path { flex: 1; display: flex; align-items: center; gap: 8px; }
+.f-line { flex: 1; height: 1px; background: var(--border); }
+.f-plane { font-size: 18px; color: var(--gold); }
+.flight-meta {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+  margin-top: 12px;
+  padding-top: 12px;
+  border-top: 1px solid var(--border);
+  font-size: 12.5px;
+  color: var(--text-muted);
+}
+.flight-meta span { display: flex; align-items: center; gap: 5px; }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 560px) {
+  .hero { padding: 40px 16px 36px; }
+  .hero-pill { font-size: 12px; padding: 6px 12px; }
+  .family-item { padding: 10px 14px; font-size: 12px; }
+  .nav-btn { padding: 12px 16px; font-size: 13px; }
+  .cost-thead, .cost-row, .cost-tfoot { grid-template-columns: 1fr 85px 80px; }
+}
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-ornament">
+    <div class="hero-ornament-line"></div>
+    <div class="hero-ornament-tag">June 2026 · California & Wyoming</div>
+    <div class="hero-ornament-line right"></div>
+  </div>
+  <h1>LFN &amp; LJP<br><em>美西毕业之旅</em></h1>
+  <p class="hero-sub">LFN &amp; LJP · June 2026</p>
+  <div class="hero-pills">
+    <div class="hero-pill"><span class="dot"></span>洛杉矶 Los Angeles · Jun 11–20</div>
+    <div class="hero-pill"><span class="dot"></span>卡特琳娜岛 Catalina · Jun 14–15</div>
+    <div class="hero-pill"><span class="dot"></span>拉斯维加斯 Las Vegas · Jun 17–18</div>
+    <div class="hero-pill"><span class="dot"></span>大提顿 Grand Teton · Jun 21–22</div>
+    <div class="hero-pill"><span class="dot"></span>黄石国家公园 Yellowstone · Jun 23–25</div>
+  </div>
+</div>
+
+<!-- FAMILY LEGEND -->
+<div class="family-bar">
+  <div class="family-item"><div class="family-dot dot-ljp"></div>LJP 家（妈妈 + 弟弟）· 全程参与至 Jun 20</div>
+  <div class="family-item"><div class="family-dot dot-lfn"></div>LFN 家（爸爸 + 妈妈）· 全程参与</div>
+  <div class="family-item"><div class="family-dot dot-gugu"></div>姑姑家（小北）· 黄石段同行</div>
+</div>
+
+<!-- NAV -->
+<nav class="nav">
+  <button class="nav-btn active" onclick="switchTab('itinerary',this)"><span class="icon">📅</span>行程</button>
+  <button class="nav-btn" onclick="switchTab('hotels',this)"><span class="icon">🏨</span>住宿</button>
+  <button class="nav-btn" onclick="switchTab('flights',this)"><span class="icon">✈️</span>航班</button>
+  <button class="nav-btn" onclick="switchTab('costs',this)"><span class="icon">💰</span>费用</button>
+</nav>
+
+<!-- ═══════════════════════════════ ITINERARY ═══════════════════════════════ -->
+<div id="panel-itinerary" class="panel active">
+
+  <!-- LA Segment -->
+  <div class="seg-header">
+    <div class="seg-badge">📍 洛杉矶 Los Angeles</div>
+    <div class="seg-line"></div>
+    <div class="seg-dates">Jun 11–16 · Jun 19–20</div>
+  </div>
+
+  <!-- Jun 11 -->
+  <div class="day-card" onclick="toggle(this)">
+    <div class="day-card-head">
+      <div class="day-box"><div class="mo">Jun</div><div class="d">11</div><div class="wd">Thu</div></div>
+      <div class="day-info">
+        <div class="day-title">✈️ 抵达洛杉矶 Arrival</div>
+        <div class="day-meta">LJP 下午 4:50 落地 LAX · 入住 Torrance</div>
+      </div>
+      <div class="who-tags">
+        <span class="who-tag who-ljp">LJP</span>
+        <span class="who-tag who-lfn">LFN</span>
+      </div>
+      <div class="chevron">⌄</div>
+    </div>
+    <div class="day-body">
+      <div class="detail-row"><div class="detail-label">LFN 航班</div><div class="detail-val">Asiana 334，15:30 出发 → 转 Asiana 204（21:20）→ 16:50 抵达 LAX</div></div>
+      <div class="detail-row"><div class="detail-label">LJP 航班</div><div class="detail-val">Korean Air 2002，12:20 出发 → 转 Asiana 204（21:20）→ 16:50 抵达 LAX</div></div>
+      <div class="detail-row"><div class="detail-label">住宿</div><div class="detail-val">Airbnb · 1750 Cabrillo Ave, Torrance, CA 90501 · $587.93（LJP 支付）</div></div>
+    </div>
+  </div>
+
+  <!-- Jun 12 -->
+  <div class="day-card" onclick="toggle(this)">
+    <div class="day-card-head">
+      <div class="day-box"><div class="mo">Jun</div><div class="d">12</div><div class="wd">Fri</div></div>
+      <div class="day-info">
+        <div class="day-title">🎓 游览 UCLA · LFN 毕业典礼</div>
+        <div class="day-meta">上午逛校园 · 下午 5:30 毕业典礼</div>
+      </div>
+      <div class="who-tags">
+        <span class="who-tag who-ljp">LJP</span>
+        <span class="who-tag who-lfn">LFN</span>
+      </div>
+      <div class="chevron">⌄</div>
+    </div>
+    <div class="day-body">
+      <div class="detail-row"><div class="detail-label">上午</div><div class="detail-val">LFN + LJP 一起游览 UCLA 校园，中午附近用餐</div></div>
+      <div class="detail-row"><div class="detail-label">下午</div><div class="detail-val">17:30 LFN UCLA 毕业典礼，全家出席</div></div>
+    </div>
+  </div>
+
+  <!-- Jun 13 -->
+  <div class="day-card" onclick="toggle(this)">
+    <div class="day-card-head">
+      <div class="day-box"><div class="mo">Jun</div><div class="d">13</div><div class="wd">Sat</div></div>
+      <div class="day-info">
+        <div class="day-title">🎓 小北高中毕业典礼</div>
+        <div class="day-meta">上午休息 · 下午出席典礼</div>
+      </div>
+      <div class="who-tags">
+        <span class="who-tag who-ljp">LJP</span>
+        <span class="who-tag who-lfn">LFN</span>
+        <span class="who-tag who-gugu">姑姑</span>
+      </div>
+      <div class="chevron">⌄</div>
+    </div>
+    <div class="day-body">
+      <div class="detail-row"><div class="detail-label">上午</div><div class="detail-val">好好休息，吃顿好饭，换上漂亮衣服</div></div>
+      <div class="detail-row"><div class="detail-label">下午</div><div class="detail-val">🎉 小北高中毕业典礼，全家出席庆祝！</div></div>
+    </div>
+  </div>
+
+  <!-- Jun 14 -->
+  <div class="day-card" onclick="toggle(this)">
+    <div class="day-card-head">
+      <div class="day-box"><div class="mo">Jun</div><div class="d">14</div><div class="wd">Sun</div></div>
+      <div class="day-info">
+        <div class="day-title">⛴ 前往卡特琳娜岛 Catalina Island</div>
+        <div class="day-meta">08:15 上船 · 寄存行李 · 住 Hotel Atwater</div>
+      </div>
+      <div class="who-tags">
+        <span class="who-tag who-ljp">LJP</span>
+        <span class="who-tag who-lfn">LFN</span>
+      </div>
+      <div class="chevron">⌄</div>
+    </div>
+    <div class="day-body">
+      <div class="detail-row"><div class="detail-label">出发</div><div class="detail-val">08:15 上船，抵达后先寄存行李，游览 Avalon</div></div>
+      <div class="detail-row"><div class="detail-label">住宿</div><div class="detail-val">Hotel Atwater, Avalon · $500（LJP 支付）</div></div>
+      <div class="detail-row"><div class="detail-label">船票</div><div class="detail-val">$594 总计（LJP 支付）· 约 $99/人</div></div>
+    </div>
+  </div>
+
+  <!-- Jun 15 -->
+  <div class="day-card" onclick="toggle(this)">
+    <div class="day-card-head">
+      <div class="day-box"><div class="mo">Jun</div><div class="d">15</div><div class="wd">Mon</div></div>
+      <div class="day-info">
+        <div class="day-title">🌊 Avalon 游玩 · 返回 Torrance</div>
+        <div class="day-meta">可选：拖曳伞 / 潜水艇 / 高尔夫球车环岛 · 全员返回</div>
+      </div>
+      <div class="who-tags">
+        <span class="who-tag who-ljp">LJP</span>
+        <span class="who-tag who-lfn">LFN</span>
+      </div>
+      <div class="chevron">⌄</div>
+    </div>
+    <div class="day-body">
+      <div class="detail-row"><div class="detail-label">上午</div><div class="detail-val">自选活动：拖曳伞 · 半潜水观光艇 · 高尔夫球车环岛游</div></div>
+      <div class="detail-row"><div class="detail-label">下午</div><div class="detail-val">大家一起返回 Torrance</div></div>
+      <div class="detail-row"><div class="detail-label">住宿</div><div class="detail-val">DoubleTree by Hilton Carson · $307.65（LJP 支付）</div></div>
+    </div>
+  </div>
+
+  <!-- Jun 16 -->
+  <div class="day-card" onclick="toggle(this)">
+    <div class="day-card-head">
+      <div class="day-box"><div class="mo">Jun</div><div class="d">16</div><div class="wd">Tue</div></div>
+      <div class="day-info">
+        <div class="day-title">😌 放松日 · Torrance 附近闲逛</div>
+        <div class="day-meta">Redondo Beach · Palos Verdes · 备选：Huntington Library</div>
+      </div>
+      <div class="who-tags">
+        <span class="who-tag who-ljp">LJP</span>
+        <span class="who-tag who-lfn">LFN</span>
+      </div>
+      <div class="chevron">⌄</div>
+    </div>
+    <div class="day-body">
+      <div class="detail-row"><div class="detail-label">上午</div><div class="detail-val">Redondo Beach Pier / King Harbor 海边早午餐，随意溜达</div></div>
+      <div class="detail-row"><div class="detail-label">下午</div><div class="detail-val">Palos Verdes：Wayfarers Chapel（外观）· Point Vicente Lighthouse · Terranea 海崖景观</div></div>
+      <div class="detail-row"><div class="detail-label">备选</div><div class="detail-val">Huntington Library / Botanical Gardens（San Marino）· 周三至周一开放，需提前预约</div></div>
+    </div>
+  </div>
+
+  <!-- Vegas Segment -->
+  <div class="seg-header">
+    <div class="seg-badge">🎲 拉斯维加斯 Las Vegas</div>
+    <div class="seg-line"></div>
+    <div class="seg-dates">Jun 17–18 · LJP + LFN</div>
+  </div>
+
+  <!-- Jun 17 -->
+  <div class="day-card" onclick="toggle(this)">
+    <div class="day-card-head">
+      <div class="day-box"><div class="mo">Jun</div><div class="d">17</div><div class="wd">Wed</div></div>
+      <div class="day-info">
+        <div class="day-title">🚗 驾车前往拉斯维加斯</div>
+        <div class="day-meta">晚间出发 · 住 New York-New York Hotel</div>
+      </div>
+      <div class="who-tags">
+        <span class="who-tag who-ljp">LJP</span>
+        <span class="who-tag who-lfn">LFN</span>
+      </div>
+      <div class="chevron">⌄</div>
+    </div>
+    <div class="day-body">
+      <div class="detail-row"><div class="detail-label">行程</div><div class="detail-val">从 Torrance 出发，晚间驾车抵达拉斯维加斯（约 4–5 小时）</div></div>
+      <div class="detail-row"><div class="detail-label">住宿</div><div class="detail-val">New York-New York Hotel & Casino · $911.19（LJP 支付）</div></div>
+    </div>
+  </div>
+
+  <!-- Jun 18 -->
+  <div class="day-card" onclick="toggle(this)">
+    <div class="day-card-head">
+      <div class="day-box"><div class="mo">Jun</div><div class="d">18</div><div class="wd">Thu</div></div>
+      <div class="day-info">
+        <div class="day-title">🎭 逛 Strip · 晚上 Cirque du Soleil「O」秀</div>
+        <div class="day-meta">18:30 开场 · Ticketmaster 订票</div>
+      </div>
+      <div class="who-tags">
+        <span class="who-tag who-ljp">LJP</span>
+        <span class="who-tag who-lfn">LFN</span>
+      </div>
+      <div class="chevron">⌄</div>
+    </div>
+    <div class="day-body">
+      <div class="detail-row"><div class="detail-label">白天</div><div class="detail-val">游览 Las Vegas Strip</div></div>
+      <div class="detail-row"><div class="detail-label">晚上</div><div class="detail-val">Cirque du Soleil「O」秀 · 18:30 开场 · $1,420.14（LJP 支付）· Ticketmaster 订购</div></div>
+    </div>
+  </div>
+
+  <!-- Back to LA -->
+  <div class="seg-header">
+    <div class="seg-badge">🌊 返回洛杉矶 Back to LA</div>
+    <div class="seg-line"></div>
+    <div class="seg-dates">Jun 19–20</div>
+  </div>
+
+  <!-- Jun 19 -->
+  <div class="day-card" onclick="toggle(this)">
+    <div class="day-card-head">
+      <div class="day-box"><div class="mo">Jun</div><div class="d">19</div><div class="wd">Fri</div></div>
+      <div class="day-info">
+        <div class="day-title">🚗 返回洛杉矶</div>
+        <div class="day-meta">上午出发 · Redondo Inn & Suites</div>
+      </div>
+      <div class="who-tags">
+        <span class="who-tag who-ljp">LJP</span>
+        <span class="who-tag who-lfn">LFN</span>
+      </div>
+      <div class="chevron">⌄</div>
+    </div>
+    <div class="day-body">
+      <div class="detail-row"><div class="detail-label">行程</div><div class="detail-val">上午从 Vegas 出发，驾车返回洛杉矶</div></div>
+      <div class="detail-row"><div class="detail-label">住宿</div><div class="detail-val">Redondo Inn And Suites · $154.68（LJP 支付）</div></div>
+    </div>
+  </div>
+
+  <!-- Jun 20 -->
+  <div class="day-card" onclick="toggle(this)">
+    <div class="day-card-head">
+      <div class="day-box"><div class="mo">Jun</div><div class="d">20</div><div class="wd">Sat</div></div>
+      <div class="day-info">
+        <div class="day-title">✈️ LJP 家启程回国</div>
+        <div class="day-meta">23:30 LAX 出发 · LFN 留美继续黄石之旅</div>
+      </div>
+      <div class="who-tags">
+        <span class="who-tag who-ljp">LJP</span>
+      </div>
+      <div class="chevron">⌄</div>
+    </div>
+    <div class="day-body">
+      <div class="detail-row"><div class="detail-label">航班</div><div class="detail-val">Asiana 203，23:30 LAX 出发 → 转 Asiana 721（9:20）→ 6/22 11:40 抵达</div></div>
+      <div class="detail-row"><div class="detail-label">备注</div><div class="detail-val">LJP 本人随后在家办公，LFN 陪同 LFN 爸妈 + 姑姑家前往黄石</div></div>
+    </div>
+  </div>
+
+  <!-- Yellowstone Segment -->
+  <div class="seg-header">
+    <div class="seg-badge">🏔 杰克逊霍尔 & 黄石 Jackson Hole & Yellowstone</div>
+    <div class="seg-line"></div>
+    <div class="seg-dates">Jun 21–25 · LFN + LFN家 + 姑姑家</div>
+  </div>
+
+  <!-- Jun 21 -->
+  <div class="day-card" onclick="toggle(this)">
+    <div class="day-card-head">
+      <div class="day-box"><div class="mo">Jun</div><div class="d">21</div><div class="wd">Sun</div></div>
+      <div class="day-info">
+        <div class="day-title">✈️ 飞往杰克逊霍尔</div>
+        <div class="day-meta">AA5012 · 08:50 出发 · 取车 Enterprise</div>
+      </div>
+      <div class="who-tags">
+        <span class="who-tag who-lfn">LFN</span>
+        <span class="who-tag who-gugu">姑姑</span>
+      </div>
+      <div class="chevron">⌄</div>
+    </div>
+    <div class="day-body">
+      <div class="detail-row"><div class="detail-label">航班</div><div class="detail-val">American Airlines 5012 · 08:50 LAX → 12:16 JAC · 确认号：<span class="mono">SRAJDU</span> · Expedia：<span class="mono">73461607671663</span></div></div>
+      <div class="detail-row"><div class="detail-label">取车</div><div class="detail-val">Enterprise · 参考号：<span class="mono">2115397271</span> · Expedia：<span class="mono">73461742451629</span> · ⚠️ 姑姑需出示驾照 + 信用卡</div></div>
+      <div class="detail-row"><div class="detail-label">住宿</div><div class="detail-val">Cobblestone Hotel & Suites · Victor, ID · $641.64 · Expedia：<span class="mono">73461720336475</span></div></div>
+      <div class="detail-row"><div class="detail-label">景点</div><div class="detail-val">Mormon Row · Glacier View Turnout · Schwabacher Landing（徒步）</div></div>
+    </div>
+  </div>
+
+  <!-- Jun 22 -->
+  <div class="day-card" onclick="toggle(this)">
+    <div class="day-card-head">
+      <div class="day-box"><div class="mo">Jun</div><div class="d">22</div><div class="wd">Mon</div></div>
+      <div class="day-info">
+        <div class="day-title">🏔 Jenny Lake · 大提顿国家公园</div>
+        <div class="day-meta">Signal Mountain · Oxbow Bend · Grant Village</div>
+      </div>
+      <div class="who-tags">
+        <span class="who-tag who-lfn">LFN</span>
+        <span class="who-tag who-gugu">姑姑</span>
+      </div>
+      <div class="chevron">⌄</div>
+    </div>
+    <div class="day-body">
+      <div class="detail-row"><div class="detail-label">上午</div><div class="detail-val">Jenny Lake 游览区</div></div>
+      <div class="detail-row"><div class="detail-label">下午</div><div class="detail-val">Signal Mountain Summit 山顶 · Oxbow Bend 观景台</div></div>
+      <div class="detail-row"><div class="detail-label">住宿</div><div class="detail-val">Grant Village · $799.08 · 官网预订号：<span class="mono">20729119</span></div></div>
+    </div>
+  </div>
+
+  <!-- Jun 23 -->
+  <div class="day-card" onclick="toggle(this)">
+    <div class="day-card-head">
+      <div class="day-box"><div class="mo">Jun</div><div class="d">23</div><div class="wd">Tue</div></div>
+      <div class="day-info">
+        <div class="day-title">🌋 进入黄石 · 老忠实 & 大棱镜泉</div>
+        <div class="day-meta">Grand Visitor Center · Old Faithful · Fairy Falls 徒步</div>
+      </div>
+      <div class="who-tags">
+        <span class="who-tag who-lfn">LFN</span>
+        <span class="who-tag who-gugu">姑姑</span>
+      </div>
+      <div class="chevron">⌄</div>
+    </div>
+    <div class="day-body">
+      <div class="detail-row"><div class="detail-label">景点</div><div class="detail-val">Grand Visitor Center · West Thumb Geyser Basin</div></div>
+      <div class="detail-row"><div class="detail-label">间歇泉</div><div class="detail-val">Old Faithful 老忠实间歇泉 · Morning Glory Pool 晨辉池</div></div>
+      <div class="detail-row"><div class="detail-label">徒步</div><div class="detail-val">Fairy Falls Trailhead → 俯瞰 Grand Prismatic Spring 大棱镜泉</div></div>
+      <div class="detail-row"><div class="detail-label">住宿</div><div class="detail-val">The Hibernation Station · West Yellowstone · $1,113.26 · Expedia：<span class="mono">73461726909284</span></div></div>
+    </div>
+  </div>
+
+  <!-- Jun 24 -->
+  <div class="day-card" onclick="toggle(this)">
+    <div class="day-card-head">
+      <div class="day-box"><div class="mo">Jun</div><div class="d">24</div><div class="wd">Wed</div></div>
+      <div class="day-info">
+        <div class="day-title">🎨 Artists' Paintpots · Mammoth Hot Springs</div>
+        <div class="day-meta">Norris Geyser Basin · 彩色温泉梯田</div>
+      </div>
+      <div class="who-tags">
+        <span class="who-tag who-lfn">LFN</span>
+        <span class="who-tag who-gugu">姑姑</span>
+      </div>
+      <div class="chevron">⌄</div>
+    </div>
+    <div class="day-body">
+      <div class="detail-row"><div class="detail-label">上午</div><div class="detail-val">Artists' Paintpots 彩色泥泉 · Norris Geyser Basin 诺里斯间歇泉盆地</div></div>
+      <div class="detail-row"><div class="detail-label">下午</div><div class="detail-val">Mammoth Hot Springs 猛犸热泉梯田</div></div>
+      <div class="detail-row"><div class="detail-label">住宿</div><div class="detail-val">The Hibernation Station（同 Jun 23）</div></div>
+    </div>
+  </div>
+
+  <!-- Jun 25 -->
+  <div class="day-card" onclick="toggle(this)">
+    <div class="day-card-head">
+      <div class="day-box"><div class="mo">Jun</div><div class="d">25</div><div class="wd">Thu</div></div>
+      <div class="day-info">
+        <div class="day-title">🦬 Hayden Valley · 大峡谷瀑布 · 飞回 LA</div>
+        <div class="day-meta">Brink of Lower Falls · Mud Volcano · Delta 417 18:05</div>
+      </div>
+      <div class="who-tags">
+        <span class="who-tag who-lfn">LFN</span>
+        <span class="who-tag who-gugu">姑姑</span>
+      </div>
+      <div class="chevron">⌄</div>
+    </div>
+    <div class="day-body">
+      <div class="detail-row"><div class="detail-label">上午</div><div class="detail-val">Brink of Lower Falls 黄石大峡谷瀑布顶 · Hayden Valley 野牛草原 · Mud Volcano 泥火山</div></div>
+      <div class="detail-row"><div class="detail-label">沿途</div><div class="detail-val">回 JAC 机场途中可补充其他想去的景点</div></div>
+      <div class="detail-row"><div class="detail-label">航班</div><div class="detail-val">Delta 417，18:05 出发 → 转 Delta 1142（20:40）→ 21:45 抵达 LAX · 确认号：<span class="mono">HVHFPK</span></div></div>
+    </div>
+  </div>
+
+  <!-- Departure -->
+  <div class="seg-header">
+    <div class="seg-badge">🏡 回国 Departure</div>
+    <div class="seg-line"></div>
+    <div class="seg-dates">Jun 26</div>
+  </div>
+
+  <div class="day-card" onclick="toggle(this)">
+    <div class="day-card-head">
+      <div class="day-box"><div class="mo">Jun</div><div class="d">26</div><div class="wd">Fri</div></div>
+      <div class="day-info">
+        <div class="day-title">✈️ LFN 家启程回国 · 旅途圆满结束</div>
+        <div class="day-meta">23:30 LAX · Asiana 203</div>
+      </div>
+      <div class="who-tags">
+        <span class="who-tag who-lfn">LFN</span>
+      </div>
+      <div class="chevron">⌄</div>
+    </div>
+    <div class="day-body">
+      <div class="detail-row"><div class="detail-label">航班</div><div class="detail-val">Asiana 203，23:30 LAX 出发 → 转 Korean Air 855（10:40）→ 6/28 12:05 抵达</div></div>
+    </div>
+  </div>
+
+</div><!-- /panel-itinerary -->
+
+<!-- ═══════════════════════════════ HOTELS ═══════════════════════════════ -->
+<div id="panel-hotels" class="panel">
+
+  <div class="sec-label">LJP 家 · 洛杉矶 & 拉斯维加斯</div>
+
+  <div class="hotel-card">
+    <div class="hotel-head">
+      <div class="hotel-icon icon-ljp">🏠</div>
+      <div>
+        <div class="hotel-name">Airbnb — Torrance</div>
+        <div class="hotel-dates">Jun 11–17 · 洛杉矶基地</div>
+      </div>
+      <span class="payer payer-ljp"><span class="payer-dot" style="background:#5B9BD5"></span>LJP 支付</span>
+    </div>
+    <div class="hotel-grid">
+      <div><div class="hf-label">费用</div><div class="hf-val">$587.93</div></div>
+      <div><div class="hf-label">地址</div><div class="hf-val">1750 Cabrillo Ave, Torrance, CA 90501</div></div>
+    </div>
+  </div>
+
+  <div class="hotel-card">
+    <div class="hotel-head">
+      <div class="hotel-icon icon-ljp">🏝</div>
+      <div>
+        <div class="hotel-name">Hotel Atwater — Avalon, Catalina Island</div>
+        <div class="hotel-dates">Jun 14 · 1晚</div>
+      </div>
+      <span class="payer payer-ljp"><span class="payer-dot" style="background:#5B9BD5"></span>LJP 支付</span>
+    </div>
+    <div class="hotel-grid">
+      <div><div class="hf-label">酒店费用</div><div class="hf-val">$500.00</div></div>
+      <div><div class="hf-label">船票（全员）</div><div class="hf-val">$594.00</div></div>
+    </div>
+  </div>
+
+  <div class="hotel-card">
+    <div class="hotel-head">
+      <div class="hotel-icon icon-ljp">🏨</div>
+      <div>
+        <div class="hotel-name">DoubleTree by Hilton Carson</div>
+        <div class="hotel-dates">Jun 15 · 1晚</div>
+      </div>
+      <span class="payer payer-ljp"><span class="payer-dot" style="background:#5B9BD5"></span>LJP 支付</span>
+    </div>
+    <div class="hotel-grid">
+      <div><div class="hf-label">费用</div><div class="hf-val">$307.65</div></div>
+    </div>
+  </div>
+
+  <div class="hotel-card">
+    <div class="hotel-head">
+      <div class="hotel-icon icon-ljp">🎰</div>
+      <div>
+        <div class="hotel-name">New York-New York Hotel & Casino — Las Vegas</div>
+        <div class="hotel-dates">Jun 17–18 · 2晚</div>
+      </div>
+      <span class="payer payer-ljp"><span class="payer-dot" style="background:#5B9BD5"></span>LJP 支付</span>
+    </div>
+    <div class="hotel-grid">
+      <div><div class="hf-label">费用</div><div class="hf-val">$911.19</div></div>
+    </div>
+  </div>
+
+  <div class="hotel-card">
+    <div class="hotel-head">
+      <div class="hotel-icon icon-ljp">🛏</div>
+      <div>
+        <div class="hotel-name">Redondo Inn And Suites</div>
+        <div class="hotel-dates">Jun 19 · 1晚</div>
+      </div>
+      <span class="payer payer-ljp"><span class="payer-dot" style="background:#5B9BD5"></span>LJP 支付</span>
+    </div>
+    <div class="hotel-grid">
+      <div><div class="hf-label">费用</div><div class="hf-val">$154.68</div></div>
+    </div>
+  </div>
+
+  <div class="sec-label">LFN 家 · 黄石 & 大提顿</div>
+
+  <div class="hotel-card">
+    <div class="hotel-head">
+      <div class="hotel-icon icon-lfn">🏔</div>
+      <div>
+        <div class="hotel-name">Cobblestone Hotel & Suites — Victor, ID</div>
+        <div class="hotel-dates">Jun 21 · 1晚</div>
+      </div>
+      <span class="payer payer-lfn"><span class="payer-dot" style="background:#C9A84C"></span>LFN 支付</span>
+    </div>
+    <div class="hotel-grid">
+      <div><div class="hf-label">费用</div><div class="hf-val">$641.64</div></div>
+      <div><div class="hf-label">Expedia 订单号</div><div class="hf-val"><span class="mono">73461720336475</span></div></div>
+    </div>
+  </div>
+
+  <div class="hotel-card">
+    <div class="hotel-head">
+      <div class="hotel-icon icon-lfn">🌲</div>
+      <div>
+        <div class="hotel-name">Grant Village — Grand Teton NP</div>
+        <div class="hotel-dates">Jun 22 · 1晚</div>
+      </div>
+      <span class="payer payer-lfn"><span class="payer-dot" style="background:#C9A84C"></span>LFN 支付</span>
+    </div>
+    <div class="hotel-grid">
+      <div><div class="hf-label">费用</div><div class="hf-val">$799.08</div></div>
+      <div><div class="hf-label">官网预订号</div><div class="hf-val"><span class="mono">20729119</span></div></div>
+    </div>
+  </div>
+
+  <div class="hotel-card">
+    <div class="hotel-head">
+      <div class="hotel-icon icon-lfn">🌋</div>
+      <div>
+        <div class="hotel-name">The Hibernation Station — West Yellowstone</div>
+        <div class="hotel-dates">Jun 23–24 · 2晚</div>
+      </div>
+      <span class="payer payer-lfn"><span class="payer-dot" style="background:#C9A84C"></span>LFN 支付</span>
+    </div>
+    <div class="hotel-grid">
+      <div><div class="hf-label">费用</div><div class="hf-val">$1,113.26</div></div>
+      <div><div class="hf-label">Expedia 订单号</div><div class="hf-val"><span class="mono">73461726909284</span></div></div>
+    </div>
+  </div>
+
+  <div class="tip">⚠️ <strong>取车提醒：</strong>姑姑需在机场 Enterprise 柜台出示本人驾照 + 信用卡。车辆预订参考号 <span class="mono">2115397271</span>，Expedia 订单 <span class="mono">73461742451629</span>。</div>
+
+</div><!-- /panel-hotels -->
+
+<!-- ═══════════════════════════════ FLIGHTS ═══════════════════════════════ -->
+<div id="panel-flights" class="panel">
+
+  <div class="sec-label">LFN 家 · 爸爸妈妈</div>
+
+  <div class="flight-card">
+    <div class="flight-top">
+      <div class="flight-name"><span class="flight-icon">🛫</span>去程 Outbound</div>
+      <span class="payer payer-lfn"><span class="payer-dot" style="background:#C9A84C"></span>LFN 支付</span>
+    </div>
+    <div class="flight-route">
+      <div class="f-city"><div class="f-code">ICN</div><div class="f-time">Jun 11 · 15:30</div></div>
+      <div class="f-path"><div class="f-line"></div><div class="f-plane">✈</div><div class="f-line"></div></div>
+      <div class="f-city"><div class="f-code">LAX</div><div class="f-time">Jun 11 · 16:50</div></div>
+    </div>
+    <div class="flight-meta">
+      <span>🛩 Asiana 334 → Asiana 204（中转 21:20）</span>
+    </div>
+  </div>
+
+  <div class="flight-card">
+    <div class="flight-top">
+      <div class="flight-name"><span class="flight-icon">🛬</span>回程 Return</div>
+      <span class="payer payer-lfn"><span class="payer-dot" style="background:#C9A84C"></span>LFN 支付</span>
+    </div>
+    <div class="flight-route">
+      <div class="f-city"><div class="f-code">LAX</div><div class="f-time">Jun 26 · 23:30</div></div>
+      <div class="f-path"><div class="f-line"></div><div class="f-plane">✈</div><div class="f-line"></div></div>
+      <div class="f-city"><div class="f-code">ICN</div><div class="f-time">Jun 28 · 12:05</div></div>
+    </div>
+    <div class="flight-meta">
+      <span>🛩 Asiana 203 → Korean Air 855（中转 10:40）</span>
+    </div>
+  </div>
+
+  <div class="flight-card" style="border-left: 3px solid var(--gold);">
+    <div class="flight-top">
+      <div class="flight-name"><span class="flight-icon">🏔</span>杰克逊霍尔 · 去程</div>
+      <span class="payer payer-lfn"><span class="payer-dot" style="background:#C9A84C"></span>LFN 支付</span>
+    </div>
+    <div class="flight-route">
+      <div class="f-city"><div class="f-code">LAX</div><div class="f-time">Jun 21 · 08:50</div></div>
+      <div class="f-path"><div class="f-line"></div><div class="f-plane">✈</div><div class="f-line"></div></div>
+      <div class="f-city"><div class="f-code">JAC</div><div class="f-time">Jun 21 · 12:16</div></div>
+    </div>
+    <div class="flight-meta">
+      <span>🛩 American Airlines 5012</span>
+      <span>📋 确认号：<span class="mono">SRAJDU</span></span>
+      <span>🧾 Expedia：<span class="mono">73461607671663</span></span>
+    </div>
+  </div>
+
+  <div class="flight-card" style="border-left: 3px solid var(--gold);">
+    <div class="flight-top">
+      <div class="flight-name"><span class="flight-icon">🏔</span>杰克逊霍尔 · 返程</div>
+      <span class="payer payer-lfn"><span class="payer-dot" style="background:#C9A84C"></span>LFN 支付</span>
+    </div>
+    <div class="flight-route">
+      <div class="f-city"><div class="f-code">JAC</div><div class="f-time">Jun 25 · 18:05</div></div>
+      <div class="f-path"><div class="f-line"></div><div class="f-plane">✈</div><div class="f-line"></div></div>
+      <div class="f-city"><div class="f-code">LAX</div><div class="f-time">Jun 25 · 21:45</div></div>
+    </div>
+    <div class="flight-meta">
+      <span>🛩 Delta 417 → Delta 1142（中转 20:40）</span>
+      <span>📋 确认号：<span class="mono">HVHFPK</span></span>
+      <span>🧾 Expedia：<span class="mono">73461607671663</span></span>
+    </div>
+  </div>
+
+  <div class="sec-label">LJP 家 · 妈妈 + 弟弟</div>
+
+  <div class="flight-card">
+    <div class="flight-top">
+      <div class="flight-name"><span class="flight-icon">🛫</span>去程 Outbound</div>
+      <span class="payer payer-ljp"><span class="payer-dot" style="background:#5B9BD5"></span>LJP 支付</span>
+    </div>
+    <div class="flight-route">
+      <div class="f-city"><div class="f-code">ICN</div><div class="f-time">Jun 11 · 12:20</div></div>
+      <div class="f-path"><div class="f-line"></div><div class="f-plane">✈</div><div class="f-line"></div></div>
+      <div class="f-city"><div class="f-code">LAX</div><div class="f-time">Jun 11 · 16:50</div></div>
+    </div>
+    <div class="flight-meta">
+      <span>🛩 Korean Air 2002 → Asiana 204（中转 21:20）</span>
+    </div>
+  </div>
+
+  <div class="flight-card">
+    <div class="flight-top">
+      <div class="flight-name"><span class="flight-icon">🛬</span>回程 Return</div>
+      <span class="payer payer-ljp"><span class="payer-dot" style="background:#5B9BD5"></span>LJP 支付</span>
+    </div>
+    <div class="flight-route">
+      <div class="f-city"><div class="f-code">LAX</div><div class="f-time">Jun 20 · 23:30</div></div>
+      <div class="f-path"><div class="f-line"></div><div class="f-plane">✈</div><div class="f-line"></div></div>
+      <div class="f-city"><div class="f-code">ICN</div><div class="f-time">Jun 22 · 11:40</div></div>
+    </div>
+    <div class="flight-meta">
+      <span>🛩 Asiana 203 → Asiana 721（中转 9:20）</span>
+    </div>
+  </div>
+
+</div><!-- /panel-flights -->
+
+<!-- ═══════════════════════════════ COSTS ═══════════════════════════════ -->
+<div id="panel-costs" class="panel">
+
+  <div class="cost-metrics">
+    <div class="metric highlight">
+      <div class="metric-label">预订总计 Grand Total</div>
+      <div class="metric-val">$10,391</div>
+      <div class="metric-sub">不含餐饮及现场消费</div>
+    </div>
+  </div>
+
+  <div class="sec-label">费用明细</div>
+  <div class="cost-block">
+    <div class="cost-thead"><div>项目</div><div>类别</div><div class="cost-amt">金额</div></div>
+    <div class="cost-row"><div>Airbnb Torrance</div><div>住宿</div><div class="cost-amt">$587.93</div></div>
+    <div class="cost-row"><div>Hotel Atwater（卡特琳娜岛）</div><div>住宿</div><div class="cost-amt">$500.00</div></div>
+    <div class="cost-row"><div>船票（全员）</div><div>交通</div><div class="cost-amt">$594.00</div></div>
+    <div class="cost-row"><div>DoubleTree Carson</div><div>住宿</div><div class="cost-amt">$307.65</div></div>
+    <div class="cost-row"><div>NY-NY Hotel & Casino Las Vegas</div><div>住宿</div><div class="cost-amt">$911.19</div></div>
+    <div class="cost-row"><div>Cirque du Soleil「O」秀</div><div>演出</div><div class="cost-amt">$1,420.14</div></div>
+    <div class="cost-row"><div>Redondo Inn & Suites</div><div>住宿</div><div class="cost-amt">$154.68</div></div>
+    <div class="cost-row"><div>国际往返机票</div><div>机票</div><div class="cost-amt">$2,268.70</div></div>
+    <div class="cost-row"><div>租车 Enterprise</div><div>交通</div><div class="cost-amt">$1,092.32</div></div>
+    <div class="cost-row"><div>Cobblestone Hotel Victor</div><div>住宿</div><div class="cost-amt">$641.64</div></div>
+    <div class="cost-row"><div>Grant Village</div><div>住宿</div><div class="cost-amt">$799.08</div></div>
+    <div class="cost-row"><div>The Hibernation Station（2晚）</div><div>住宿</div><div class="cost-amt">$1,113.26</div></div>
+    <div class="cost-tfoot"><div>合计</div><div></div><div class="cost-amt">$10,390.59</div></div>
+  </div>
+
+  <div class="tip">📌 <strong>备注：</strong>以上费用不含餐饮及旅途中的现场消费。LFN 持有 America the Beautiful 年票，覆盖黄石、大提顿等所有国家公园，无需另购门票。</div>
+
+</div><!-- /panel-costs -->
+
+<script>
+function switchTab(id, btn) {
+  document.querySelectorAll('.panel').forEach(function(p){ p.classList.remove('active'); });
+  document.querySelectorAll('.nav-btn').forEach(function(b){ b.classList.remove('active'); });
+  document.getElementById('panel-' + id).classList.add('active');
+  btn.classList.add('active');
+  window.scrollTo({ top: document.querySelector('.nav').offsetTop - 2, behavior: 'smooth' });
+}
+function toggle(card) {
+  card.classList.toggle('open');
+}
+</script>
+</body>
+</html>
